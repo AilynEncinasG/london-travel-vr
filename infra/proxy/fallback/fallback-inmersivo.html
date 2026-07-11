@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Página temporal de respaldo para el recorrido inmersivo de London Travel."
+    >
+
+    <title>Recorrido 360° no disponible | London Travel</title>
+
+    <link
+        rel="stylesheet"
+        href="/respaldo360/css/fallback-inmersivo.css"
+    >
+</head>
+
+<body>
+    <main class="pagina-respaldo">
+        <section
+            class="tarjeta-respaldo"
+            aria-labelledby="titulo-respaldo"
+        >
+            <div
+                class="icono-respaldo"
+                aria-hidden="true"
+            >
+                360°
+            </div>
+
+            <p class="etiqueta">
+                London Travel
+            </p>
+
+            <h1 id="titulo-respaldo">
+                Recorrido inmersivo temporalmente no disponible
+            </h1>
+
+            <p class="descripcion">
+                En este momento no pudimos cargar la experiencia
+                virtual de esta ruta turística.
+            </p>
+
+            <p class="mensaje-secundario">
+                La página informativa de London Travel continúa
+                funcionando normalmente. Puedes consultar las rutas,
+                los guías, la misión, la visión y los medios de contacto.
+            </p>
+
+            <div
+                class="acciones"
+                aria-label="Opciones disponibles"
+            >
+                <button
+                    id="boton-reintentar"
+                    class="boton boton-principal"
+                    type="button"
+                >
+                    Reintentar recorrido
+                </button>
+
+                <a
+                    class="boton boton-secundario"
+                    href="/"
+                >
+                    Volver a la página principal
+                </a>
+            </div>
+
+            <p
+                id="estado-reintento"
+                class="estado-reintento"
+                aria-live="polite"
+            ></p>
+        </section>
+    </main>
+
+    <script
+        src="/respaldo360/js/fallback-inmersivo.js"
+        defer
+    ></script>
+</body>
+</html>
