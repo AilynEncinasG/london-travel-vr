@@ -1,0 +1,65 @@
+.seccion-institucional {
+  background-color: var(--color-blanco);
+}
+
+.cuadricula-institucional {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.tarjeta-institucional {
+  min-height: 290px;
+  padding: 32px;
+  background-color: var(--color-fondo-claro);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+}
+
+.tarjeta-institucional.tarjeta-destacada {
+  color: var(--color-blanco);
+  background:
+    linear-gradient(
+      145deg,
+      var(--color-principal-oscuro),
+      var(--color-principal)
+    );
+  border-color: transparent;
+}
+
+.numero-tarjeta {
+  display: block;
+  margin-bottom: 52px;
+  color: var(--color-secundario);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.tarjeta-institucional h3 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.tarjeta-institucional p {
+  margin: 16px 0 0;
+  color: var(--color-texto-suave);
+  line-height: 1.75;
+}
+
+.tarjeta-destacada p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 900px) {
+  .cuadricula-institucional {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-institucional {
+    min-height: auto;
+  }
+
+  .numero-tarjeta {
+    margin-bottom: 26px;
+  }
+}

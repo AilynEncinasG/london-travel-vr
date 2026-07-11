@@ -1,0 +1,39 @@
+.pie-pagina {
+  padding: 42px 0;
+  color: rgba(255, 255, 255, 0.75);
+  background-color: #061f1b;
+}
+
+.contenido-pie {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.contenido-pie strong {
+  color: var(--color-blanco);
+  font-size: 20px;
+}
+
+.contenido-pie p {
+  max-width: 490px;
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
+.derechos-pie {
+  font-size: 13px;
+  text-align: right;
+}
+
+@media (max-width: 700px) {
+  .contenido-pie {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .derechos-pie {
+    text-align: left;
+  }
+}

@@ -1,0 +1,125 @@
+.encabezado-principal {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(15, 89, 77, 0.09);
+  backdrop-filter: blur(14px);
+}
+
+.contenido-encabezado {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-principal-oscuro);
+  text-decoration: none;
+}
+
+.marca-simbolo {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: var(--color-blanco);
+  font-weight: 900;
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-principal),
+      #278c77
+    );
+  border-radius: 14px;
+}
+
+.marca-texto {
+  display: flex;
+  flex-direction: column;
+}
+
+.marca-texto strong {
+  font-size: 17px;
+}
+
+.marca-texto small {
+  color: var(--color-texto-suave);
+  font-size: 12px;
+}
+
+.navegacion-principal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navegacion-principal > a:not(.boton) {
+  color: #38574f;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navegacion-principal > a:not(.boton):hover {
+  color: var(--color-principal);
+}
+
+.boton-contacto-menu {
+  min-height: 42px;
+  padding: 10px 17px;
+  font-size: 13px;
+}
+
+.boton-menu {
+  width: 46px;
+  height: 42px;
+  display: none;
+  padding: 9px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.boton-menu span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background-color: var(--color-principal);
+  border-radius: 5px;
+}
+
+@media (max-width: 940px) {
+  .boton-menu {
+    display: block;
+  }
+
+  .navegacion-principal {
+    position: absolute;
+    top: 78px;
+    right: 20px;
+    left: 20px;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+    padding: 22px;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    box-shadow: var(--sombra-suave);
+  }
+
+  .navegacion-principal.navegacion-visible {
+    display: flex;
+  }
+
+  .navegacion-principal > a:not(.boton) {
+    padding: 11px 8px;
+  }
+}

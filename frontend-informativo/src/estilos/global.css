@@ -1,0 +1,159 @@
+:root {
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: #172b26;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --color-principal: #0f594d;
+  --color-principal-oscuro: #0a4037;
+  --color-secundario: #e49a32;
+  --color-fondo-claro: #f3f8f6;
+  --color-texto: #172b26;
+  --color-texto-suave: #5f716b;
+  --color-blanco: #ffffff;
+  --color-borde: #dce8e3;
+
+  --sombra-suave: 0 18px 45px rgba(15, 89, 77, 0.11);
+  --radio-tarjeta: 20px;
+  --ancho-contenido: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-texto);
+  background-color: var(--color-blanco);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.contenedor {
+  width: min(var(--ancho-contenido), calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.seccion {
+  padding: 88px 0;
+}
+
+.encabezado-seccion {
+  max-width: 720px;
+  margin-bottom: 42px;
+}
+
+.etiqueta-seccion {
+  margin: 0 0 10px;
+  color: var(--color-secundario);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.titulo-seccion {
+  margin: 0;
+  color: var(--color-principal-oscuro);
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.12;
+}
+
+.descripcion-seccion {
+  margin: 18px 0 0;
+  color: var(--color-texto-suave);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.boton {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+}
+
+.boton:focus-visible {
+  outline: 3px solid rgba(228, 154, 50, 0.35);
+  outline-offset: 3px;
+}
+
+.boton-principal {
+  color: var(--color-blanco);
+  background-color: var(--color-principal);
+  box-shadow: 0 10px 25px rgba(15, 89, 77, 0.22);
+}
+
+.boton-principal:hover {
+  background-color: var(--color-principal-oscuro);
+}
+
+.boton-secundario {
+  color: var(--color-principal);
+  background-color: var(--color-blanco);
+  border-color: var(--color-borde);
+}
+
+.boton-secundario:hover {
+  background-color: var(--color-fondo-claro);
+}
+
+@media (max-width: 700px) {
+  .contenedor {
+    width: min(100% - 28px, var(--ancho-contenido));
+  }
+
+  .seccion {
+    padding: 68px 0;
+  }
+}

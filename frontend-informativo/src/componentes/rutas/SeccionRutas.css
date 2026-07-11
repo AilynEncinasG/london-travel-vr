@@ -1,0 +1,131 @@
+.seccion-rutas {
+  background-color: var(--color-fondo-claro);
+}
+
+.cuadricula-rutas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tarjeta-ruta {
+  overflow: hidden;
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+  box-shadow: 0 14px 40px rgba(15, 89, 77, 0.07);
+}
+
+.imagen-ruta-simulada {
+  min-height: 230px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      #8bc7b2,
+      #2f745d
+    );
+}
+
+.imagen-ruta-simulada span {
+  padding: 8px 12px;
+  color: var(--color-principal-oscuro);
+  font-size: 12px;
+  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+}
+
+.contenido-tarjeta-ruta {
+  padding: 25px;
+}
+
+.datos-rapidos-ruta {
+  display: flex;
+  gap: 8px;
+}
+
+.datos-rapidos-ruta span {
+  padding: 6px 9px;
+  color: var(--color-principal);
+  font-size: 11px;
+  font-weight: 800;
+  background-color: var(--color-fondo-claro);
+  border-radius: 8px;
+}
+
+.tarjeta-ruta h3 {
+  margin: 19px 0 0;
+  color: var(--color-principal-oscuro);
+  font-size: 23px;
+}
+
+.tarjeta-ruta p {
+  min-height: 82px;
+  margin: 14px 0 0;
+  color: var(--color-texto-suave);
+  line-height: 1.65;
+}
+
+.acciones-ruta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.acciones-ruta .boton {
+  min-height: 42px;
+  padding: 9px 13px;
+  font-size: 12px;
+}
+
+.enlace-recorrido {
+  color: var(--color-principal);
+  font-size: 13px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .cuadricula-rutas {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-ruta p {
+    min-height: auto;
+  }
+}
+
+.estado-rutas-vacio {
+  padding: 40px;
+  text-align: center;
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+}
+
+.estado-rutas-vacio h3 {
+  margin: 0;
+  color: var(--color-principal-oscuro);
+}
+
+.estado-rutas-vacio p {
+  margin: 12px 0 0;
+  color: var(--color-texto-suave);
+  line-height: 1.7;
+}
+
+.tarjeta-ruta-error {
+  display: flex;
+  align-items: center;
+  min-height: 260px;
+}
+
+.tarjeta-ruta-error p {
+  min-height: auto;
+}
