@@ -8,24 +8,21 @@ function Portada() {
       className="portada-principal"
       aria-labelledby="titulo-portada"
     >
-      <div className="decoracion-portada decoracion-uno"></div>
-      <div className="decoracion-portada decoracion-dos"></div>
-
       <div className="contenedor contenido-portada">
         <div className="texto-portada">
           <p className="etiqueta-portada">
-            Turismo inmersivo en Bolivia
+            Operadora turística · La Paz, Bolivia
           </p>
 
           <h1 id="titulo-portada">
-            Conoce el destino
-            <span> antes de viajar</span>
+            Descubre Bolivia de una forma
+            <span> más cercana</span>
           </h1>
 
           <p className="descripcion-portada">
-            {empresa.descripcion} Explora nuestras rutas mediante
-            experiencias visuales en 360 grados desde tu computadora,
-            teléfono o visor de realidad virtual.
+            {empresa.descripcion} Conoce nuestros destinos,
+            guías e itinerarios y explora las rutas mediante
+            fotografías panorámicas en 360 grados.
           </p>
 
           <div className="acciones-portada">
@@ -33,40 +30,60 @@ function Portada() {
               className="boton boton-principal"
               href="#experiencia-360"
             >
-              Explorar experiencia 360°
+              Explorar recorridos 360°
             </a>
 
             <a
               className="boton boton-secundario"
               href="#rutas"
             >
-              Ver rutas turísticas
+              Conocer las rutas
             </a>
           </div>
 
-          <div className="compatibilidad-portada">
-            <span>Computadora</span>
-            <span>Celular</span>
-            <span>Google Cardboard</span>
-            <span>Visores compatibles</span>
+          <div className="caracteristicas-portada">
+            <div>
+              <strong>360°</strong>
+              <span>Recorridos virtuales</span>
+            </div>
+
+            <div>
+              <strong>WebXR</strong>
+              <span>Compatible con visores</span>
+            </div>
+
+            <div>
+              <strong>Bolivia</strong>
+              <span>Experiencias nacionales</span>
+            </div>
           </div>
         </div>
 
-        <div
-          className="vista-previa-portada"
-          aria-label="Vista previa de una experiencia turística"
-        >
-          <div className="marco-vista-previa">
-            <div className="paisaje-simulado">
-              <span className="sol-paisaje"></span>
-              <span className="montana montana-uno"></span>
-              <span className="montana montana-dos"></span>
-              <span className="montana montana-tres"></span>
-            </div>
+        <div className="visual-portada">
+          <div
+            className="fotografia-portada"
+            role="img"
+            aria-label="Paisaje turístico de Bolivia"
+          >
+            <div className="sello-portada">
+              <span className="sello-icono">360°</span>
 
-            <div className="insignia-360">
-              <strong>360°</strong>
-              <span>Experiencia inmersiva</span>
+              <span>
+                <strong>Explora antes de viajar</strong>
+                <small>PC, celular y visor VR</small>
+              </span>
+            </div>
+          </div>
+
+          <div className="tarjeta-logo-portada">
+            <img
+              src="/imagenes/logo-london-travel.png"
+              alt="London Travel, operadora de turismo"
+            />
+
+            <div>
+              <strong>London Travel</strong>
+              <span>Experiencias que comienzan antes del viaje</span>
             </div>
           </div>
         </div>

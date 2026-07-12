@@ -1,5 +1,5 @@
 .seccion-rutas {
-  background-color: var(--color-fondo-claro);
+  background-color: var(--color-fondo-alterno);
 }
 
 .cuadricula-rutas {
@@ -22,11 +22,12 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: 18px;
+
   background:
     linear-gradient(
       145deg,
-      #8bc7b2,
-      #2f745d
+      #d9bfdd,
+      #70407a
     );
 }
 

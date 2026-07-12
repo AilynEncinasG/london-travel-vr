@@ -17,18 +17,24 @@ function Encabezado() {
           aria-label="Ir al inicio de London Travel"
           onClick={cerrarMenu}
         >
-          <span className="marca-simbolo">LT</span>
+          <span className="contenedor-logo">
+            <img
+              src="/imagenes/logo-london-travel.png"
+              alt="Logo oficial de London Travel"
+              className="logo-empresa"
+            />
+          </span>
 
           <span className="marca-texto">
             <strong>London Travel</strong>
-            <small>Operadora turística</small>
+            <small>Operadora de turismo</small>
           </span>
         </a>
 
         <button
           className="boton-menu"
           type="button"
-          aria-label="Abrir o cerrar menú"
+          aria-label="Abrir o cerrar el menú"
           aria-expanded={menuAbierto}
           onClick={() => setMenuAbierto(!menuAbierto)}
         >
@@ -68,7 +74,7 @@ function Encabezado() {
             href="#contacto"
             onClick={cerrarMenu}
           >
-            Solicitar información
+            Consultar una ruta
           </a>
         </nav>
       </div>

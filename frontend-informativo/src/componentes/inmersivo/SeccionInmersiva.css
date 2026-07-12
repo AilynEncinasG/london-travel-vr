@@ -1,10 +1,16 @@
 .seccion-inmersiva {
   color: var(--color-blanco);
+
   background:
+    radial-gradient(
+      circle at top right,
+      rgba(216, 191, 221, 0.16),
+      transparent 35%
+    ),
     linear-gradient(
       145deg,
-      #092f29,
-      #0f594d
+      #28102e,
+      #642070
     );
 }
 

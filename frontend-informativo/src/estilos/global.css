@@ -1,27 +1,44 @@
 :root {
   font-family:
     Inter,
+    "Segoe UI",
     Arial,
     Helvetica,
     sans-serif;
 
-  color: #172b26;
-  background-color: #ffffff;
+  color: #302831;
+  background-color: #fbf8f4;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 
-  --color-principal: #0f594d;
-  --color-principal-oscuro: #0a4037;
-  --color-secundario: #e49a32;
-  --color-fondo-claro: #f3f8f6;
-  --color-texto: #172b26;
-  --color-texto-suave: #5f716b;
-  --color-blanco: #ffffff;
-  --color-borde: #dce8e3;
+  /* Identidad principal basada en el logo */
+  --color-principal: #642070;
+  --color-principal-oscuro: #3b1045;
+  --color-principal-claro: #d8bfdd;
+  --color-principal-muy-claro: #f3eaf5;
 
-  --sombra-suave: 0 18px 45px rgba(15, 89, 77, 0.11);
-  --radio-tarjeta: 20px;
+  /* Acentos naturales y turísticos */
+  --color-dorado: #d7a23c;
+  --color-verde-bolivia: #157342;
+  --color-rojo-bolivia: #b72b25;
+
+  /* Fondos y textos */
+  --color-fondo: #fbf8f4;
+  --color-fondo-alterno: #f5eff5;
+  --color-superficie: #ffffff;
+  --color-texto: #302831;
+  --color-texto-suave: #706671;
+  --color-blanco: #ffffff;
+  --color-borde: #e4d9e5;
+
+  --sombra-suave:
+    0 18px 50px rgba(72, 29, 80, 0.1);
+
+  --sombra-media:
+    0 24px 60px rgba(72, 29, 80, 0.16);
+
+  --radio-tarjeta: 22px;
   --ancho-contenido: 1180px;
 }
 
@@ -31,15 +48,16 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 96px;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+
   color: var(--color-texto);
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
 }
 
 body,
@@ -65,58 +83,71 @@ img {
 }
 
 .contenedor {
-  width: min(var(--ancho-contenido), calc(100% - 40px));
+  width: min(
+    var(--ancho-contenido),
+    calc(100% - 40px)
+  );
+
   margin-inline: auto;
 }
 
 .seccion {
-  padding: 88px 0;
+  padding: 92px 0;
 }
 
 .encabezado-seccion {
-  max-width: 720px;
-  margin-bottom: 42px;
+  max-width: 740px;
+  margin-bottom: 44px;
 }
 
 .etiqueta-seccion {
-  margin: 0 0 10px;
-  color: var(--color-secundario);
+  margin: 0 0 11px;
+
+  color: var(--color-dorado);
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 850;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .titulo-seccion {
   margin: 0;
+
   color: var(--color-principal-oscuro);
-  font-size: clamp(30px, 5vw, 46px);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5vw, 48px);
   line-height: 1.12;
 }
 
 .descripcion-seccion {
   margin: 18px 0 0;
+
   color: var(--color-texto-suave);
   font-size: 17px;
   line-height: 1.75;
 }
 
 .boton {
-  min-height: 48px;
+  min-height: 49px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  padding: 12px 22px;
+
+  padding: 12px 23px;
+
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 999px;
+
   font-weight: 750;
   text-decoration: none;
   cursor: pointer;
+
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
-    background-color 180ms ease;
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .boton:hover {
@@ -124,33 +155,49 @@ img {
 }
 
 .boton:focus-visible {
-  outline: 3px solid rgba(228, 154, 50, 0.35);
+  outline: 3px solid rgba(215, 162, 60, 0.35);
   outline-offset: 3px;
 }
 
 .boton-principal {
   color: var(--color-blanco);
-  background-color: var(--color-principal);
-  box-shadow: 0 10px 25px rgba(15, 89, 77, 0.22);
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-principal),
+      #81328e
+    );
+
+  box-shadow:
+    0 12px 28px rgba(100, 32, 112, 0.25);
 }
 
 .boton-principal:hover {
-  background-color: var(--color-principal-oscuro);
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-principal-oscuro),
+      var(--color-principal)
+    );
 }
 
 .boton-secundario {
   color: var(--color-principal);
-  background-color: var(--color-blanco);
+  background-color: rgba(255, 255, 255, 0.88);
   border-color: var(--color-borde);
 }
 
 .boton-secundario:hover {
-  background-color: var(--color-fondo-claro);
+  background-color: var(--color-principal-muy-claro);
+  border-color: var(--color-principal-claro);
 }
 
 @media (max-width: 700px) {
   .contenedor {
-    width: min(100% - 28px, var(--ancho-contenido));
+    width: min(
+      100% - 28px,
+      var(--ancho-contenido)
+    );
   }
 
   .seccion {

@@ -15,15 +15,23 @@
 
 .tarjeta-contacto {
   padding: 36px;
+
   color: var(--color-blanco);
+
   background:
+    radial-gradient(
+      circle at top right,
+      rgba(215, 162, 60, 0.22),
+      transparent 35%
+    ),
     linear-gradient(
       145deg,
       var(--color-principal-oscuro),
       var(--color-principal)
     );
+
   border-radius: var(--radio-tarjeta);
-  box-shadow: var(--sombra-suave);
+  box-shadow: var(--sombra-media);
 }
 
 .tarjeta-contacto dl {
