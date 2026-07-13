@@ -1,0 +1,621 @@
+/* =========================================================
+   CONTENEDOR GENERAL DEL CARRUSEL
+   ========================================================= */
+
+.carrusel-rutas {
+  position: relative;
+
+  width: 100%;
+  margin-top: 12px;
+
+  outline: none;
+}
+
+.carrusel-rutas:focus-visible {
+  border-radius: 28px;
+
+  outline:
+    3px solid rgba(100, 32, 112, 0.18);
+
+  outline-offset: 8px;
+}
+
+/* =========================================================
+   INFORMACIÓN SUPERIOR
+   ========================================================= */
+
+.cabecera-control-carrusel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+
+  width: min(980px, calc(100% - 220px));
+  margin: 0 auto 20px;
+}
+
+.estado-carrusel {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+
+  min-width: 88px;
+}
+
+.numero-ruta-activa {
+  color: var(--color-principal);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size: 31px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.separador-contador,
+.total-rutas {
+  color: #a493a6;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.cabecera-control-carrusel > p {
+  margin: 0;
+
+  color: var(--color-texto-suave);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* =========================================================
+   VENTANA DEL CARRUSEL
+   ========================================================= */
+
+.ventana-carrusel {
+  position: relative;
+
+  width: 100%;
+  overflow: hidden;
+
+  padding:
+    18px
+    0
+    60px;
+}
+
+/* Degradados en los laterales para integrar las tarjetas */
+.ventana-carrusel::before,
+.ventana-carrusel::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 7;
+
+  width: 7%;
+
+  content: "";
+
+  pointer-events: none;
+}
+
+.ventana-carrusel::before {
+  left: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f9f4fa 0%,
+      rgba(249, 244, 250, 0.86) 42%,
+      transparent 100%
+    );
+}
+
+.ventana-carrusel::after {
+  right: 0;
+
+  background:
+    linear-gradient(
+      270deg,
+      #f9f4fa 0%,
+      rgba(249, 244, 250, 0.86) 42%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   ESCENARIO Y DIAPOSITIVAS
+   ========================================================= */
+
+.escenario-carrusel {
+  position: relative;
+
+  display: grid;
+  align-items: start;
+  justify-items: center;
+
+  width: 100%;
+  min-height: 400px;
+
+  perspective: 1800px;
+}
+
+.diapositiva-ruta {
+  grid-row: 1;
+  grid-column: 1;
+
+  width: min(
+    980px,
+    calc(100% - 250px)
+  );
+
+  transform-origin: center top;
+
+  transition:
+    transform 650ms
+      cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 480ms ease,
+    filter 480ms ease,
+    visibility 480ms ease;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+/* Tarjeta central */
+.diapositiva-activa {
+  z-index: 5;
+
+  opacity: 1;
+
+  filter:
+    saturate(1)
+    brightness(1);
+
+  transform:
+    translateX(0)
+    translateZ(0)
+    scale(1);
+}
+
+/* Tarjeta izquierda */
+.diapositiva-anterior {
+  z-index: 2;
+
+  opacity: 0.72;
+
+  filter:
+    saturate(0.72)
+    brightness(0.97);
+
+  transform:
+    translateX(-75%)
+    translateZ(-180px)
+    scale(0.82)
+    rotateY(7deg);
+
+  pointer-events: none;
+}
+
+/* Tarjeta derecha */
+.diapositiva-siguiente {
+  z-index: 2;
+
+  opacity: 0.72;
+
+  filter:
+    saturate(0.72)
+    brightness(0.97);
+
+  transform:
+    translateX(75%)
+    translateZ(-180px)
+    scale(0.82)
+    rotateY(-7deg);
+
+  pointer-events: none;
+}
+
+/* Rutas alejadas */
+.diapositiva-oculta {
+  z-index: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transform:
+    translateX(0)
+    translateZ(-400px)
+    scale(0.68);
+
+  pointer-events: none;
+}
+
+/* Resalta la tarjeta activa */
+.diapositiva-activa
+.tarjeta-ruta-detallada {
+  border-color:
+    rgba(100, 32, 112, 0.18);
+
+  box-shadow:
+    0 35px 85px
+      rgba(55, 17, 64, 0.22);
+}
+
+/* Tarjetas laterales con sombra más suave */
+.diapositiva-anterior
+.tarjeta-ruta-detallada,
+.diapositiva-siguiente
+.tarjeta-ruta-detallada {
+  box-shadow:
+    0 18px 46px
+      rgba(55, 17, 64, 0.13);
+}
+
+/* =========================================================
+   FLECHAS DE NAVEGACIÓN
+   ========================================================= */
+
+.control-carrusel {
+  position: absolute;
+  top: 48%;
+  z-index: 10;
+
+  width: 72px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: rgba(59, 16, 69, 0.52);
+
+  background-color:
+    rgba(255, 255, 255, 0.72);
+
+  border:
+    1px solid
+    rgba(100, 32, 112, 0.13);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 16px 40px
+      rgba(54, 18, 61, 0.1);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(14px);
+
+  transform: translateY(-50%);
+
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.control-carrusel:hover {
+  color: var(--color-principal);
+
+  background-color:
+    rgba(255, 255, 255, 0.96);
+
+  border-color:
+    var(--color-principal-claro);
+
+  box-shadow:
+    0 22px 48px
+      rgba(54, 18, 61, 0.17);
+}
+
+.control-carrusel:focus-visible {
+  outline:
+    3px solid
+    rgba(215, 162, 60, 0.38);
+
+  outline-offset: 3px;
+}
+
+.control-carrusel svg {
+  width: 45px;
+  height: 45px;
+}
+
+.control-carrusel-anterior {
+  left: 18px;
+}
+
+.control-carrusel-anterior:hover {
+  transform:
+    translateY(-50%)
+    translateX(-4px);
+}
+
+.control-carrusel-siguiente {
+  right: 18px;
+}
+
+.control-carrusel-siguiente:hover {
+  transform:
+    translateY(-50%)
+    translateX(4px);
+}
+
+/* =========================================================
+   INDICADORES INFERIORES
+   ========================================================= */
+
+.indicadores-carrusel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  margin-top: 4px;
+}
+
+.indicador-ruta {
+  width: 32px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.indicador-ruta span {
+  width: 8px;
+  height: 8px;
+  display: block;
+
+  background-color: #d4c8d6;
+  border-radius: 999px;
+
+  transition:
+    width 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.indicador-ruta:hover span {
+  background-color:
+    var(--color-principal-claro);
+}
+
+.indicador-activo span {
+  width: 28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-principal),
+      #a451ad
+    );
+
+  box-shadow:
+    0 5px 13px
+      rgba(100, 32, 112, 0.24);
+}
+
+.nombre-ruta-carrusel {
+  min-height: 24px;
+
+  margin: 12px 0 0;
+
+  color: var(--color-principal-oscuro);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* =========================================================
+   PANTALLAS MEDIANAS
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .diapositiva-ruta {
+    width:
+      min(
+        880px,
+        calc(100% - 200px)
+      );
+  }
+
+  .diapositiva-anterior {
+    transform:
+      translateX(-70%)
+      translateZ(-170px)
+      scale(0.8)
+      rotateY(6deg);
+  }
+
+  .diapositiva-siguiente {
+    transform:
+      translateX(70%)
+      translateZ(-170px)
+      scale(0.8)
+      rotateY(-6deg);
+  }
+
+  .cabecera-control-carrusel {
+    width:
+      min(
+        880px,
+        calc(100% - 200px)
+      );
+  }
+
+  .control-carrusel {
+    width: 60px;
+    height: 95px;
+  }
+
+  .control-carrusel svg {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .cabecera-control-carrusel {
+    width: calc(100% - 100px);
+  }
+
+  .diapositiva-ruta {
+    width: calc(100% - 100px);
+  }
+
+  .diapositiva-anterior {
+    opacity: 0.35;
+
+    transform:
+      translateX(-84%)
+      scale(0.76);
+  }
+
+  .diapositiva-siguiente {
+    opacity: 0.35;
+
+    transform:
+      translateX(84%)
+      scale(0.76);
+  }
+
+  .control-carrusel {
+    width: 50px;
+    height: 82px;
+
+    border-radius: 18px;
+  }
+
+  .control-carrusel-anterior {
+    left: 8px;
+  }
+
+  .control-carrusel-siguiente {
+    right: 8px;
+  }
+
+  .control-carrusel svg {
+    width: 31px;
+    height: 31px;
+  }
+}
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media (max-width: 720px) {
+  .cabecera-control-carrusel {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+
+    width: 100%;
+  }
+
+  .cabecera-control-carrusel > p {
+    text-align: left;
+  }
+
+  .ventana-carrusel {
+    overflow: visible;
+
+    padding-bottom: 35px;
+  }
+
+  .ventana-carrusel::before,
+  .ventana-carrusel::after {
+    display: none;
+  }
+
+  .diapositiva-ruta {
+    width: 100%;
+  }
+
+  /* En celular se muestra únicamente la activa */
+  .diapositiva-anterior,
+  .diapositiva-siguiente {
+    visibility: hidden;
+    opacity: 0;
+
+    transform:
+      translateX(0)
+      scale(0.92);
+  }
+
+  .control-carrusel {
+    top: auto;
+    bottom: -19px;
+
+    width: 52px;
+    height: 48px;
+
+    border-radius: 15px;
+
+    transform: none;
+  }
+
+  .control-carrusel:hover {
+    transform: translateY(-2px);
+  }
+
+  .control-carrusel-anterior {
+    left: calc(50% - 66px);
+  }
+
+  .control-carrusel-siguiente {
+    right: calc(50% - 66px);
+  }
+
+  .indicadores-carrusel {
+    margin-top: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .numero-ruta-activa {
+    font-size: 26px;
+  }
+
+  .cabecera-control-carrusel > p {
+    font-size: 11px;
+  }
+
+  .nombre-ruta-carrusel {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .diapositiva-ruta,
+  .control-carrusel,
+  .indicador-ruta span {
+    transition: none;
+  }
+}

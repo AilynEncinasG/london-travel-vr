@@ -1,5 +1,5 @@
 import { rutasTuristicas } from '../../datos/rutasIniciales'
-import TarjetaRuta from './TarjetaRuta'
+import CarruselRutas from './CarruselRutas'
 import './SeccionRutas.css'
 
 function SeccionRutas() {
@@ -28,9 +28,9 @@ function SeccionRutas() {
             </h2>
 
             <p className="descripcion-seccion">
-              Revisa la descripción, los servicios incluidos,
-              el mapa del recorrido y la experiencia inmersiva
-              disponible para cada destino.
+              Explora cada experiencia mediante una ficha
+              interactiva con información, servicios, precio,
+              ubicación, mapa y recorrido inmersivo en 360 grados.
             </p>
           </div>
 
@@ -42,17 +42,12 @@ function SeccionRutas() {
             </strong>
           </div>
         </div>
+      </div>
 
-        {rutasValidas.length > 0 ? (
-          <div className="lista-rutas-detalladas">
-            {rutasValidas.map((ruta) => (
-              <TarjetaRuta
-                key={ruta.id}
-                ruta={ruta}
-              />
-            ))}
-          </div>
-        ) : (
+      {rutasValidas.length > 0 ? (
+        <CarruselRutas rutas={rutasValidas} />
+      ) : (
+        <div className="contenedor">
           <div className="estado-rutas-vacio">
             <div className="icono-rutas-vacias">
               LT
@@ -63,12 +58,12 @@ function SeccionRutas() {
             </h3>
 
             <p>
-              La información institucional y los medios de
-              contacto continúan disponibles.
+              La información institucional, los guías y
+              los medios de contacto continúan disponibles.
             </p>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   )
 }

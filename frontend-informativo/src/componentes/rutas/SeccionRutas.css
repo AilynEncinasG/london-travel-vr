@@ -74,11 +74,6 @@
   line-height: 1.35;
 }
 
-.lista-rutas-detalladas {
-  display: grid;
-  gap: 54px;
-}
-
 .tarjeta-ruta-detallada {
   overflow: hidden;
 
@@ -788,4 +783,33 @@
   .valor-precio-cabecera {
     font-size: 49px;
   }
+}
+
+/* Permite que el carrusel ocupe más espacio que el contenedor
+   normal sin afectar el encabezado de la sección */
+.seccion-rutas > .carrusel-rutas {
+  margin-top: 8px;
+}
+
+/* Evita saltos visuales durante las transiciones */
+.carrusel-rutas
+.tarjeta-ruta-detallada {
+  margin: 0;
+}
+
+/* La tarjeta central conserva su tamaño completo */
+.carrusel-rutas
+.diapositiva-activa
+.tarjeta-ruta-detallada {
+  width: 100%;
+}
+
+/* Las tarjetas laterales no reciben clics */
+.carrusel-rutas
+.diapositiva-anterior
+.tarjeta-ruta-detallada,
+.carrusel-rutas
+.diapositiva-siguiente
+.tarjeta-ruta-detallada {
+  user-select: none;
 }
