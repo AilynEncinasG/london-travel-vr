@@ -1,10 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import 'aframe'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+import { createRoot } from 'react-dom/client'
+
+import App from './App'
+import './estilos/global.css'
+
+createRoot(
+  document.getElementById('root'),
+).render(
+  <App />,
 )

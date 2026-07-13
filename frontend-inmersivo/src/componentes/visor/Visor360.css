@@ -1,0 +1,334 @@
+.contenedor-visor-360 {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+
+  overflow: hidden;
+
+  background-color: #120a16;
+
+  /*
+   * Evita desplazamientos del navegador mientras
+   * el usuario arrastra la panorámica.
+   */
+  touch-action: none;
+  user-select: none;
+}
+
+.contenedor-visor-360:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+
+  background-color: #000000;
+}
+
+.escena-aframe {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  cursor: grab;
+}
+
+.escena-aframe:active {
+  cursor: grabbing;
+}
+
+.escena-aframe .a-canvas {
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block;
+
+  /*
+   * No utilizar image-rendering: pixelated.
+   * El navegador debe aplicar interpolación normal.
+   */
+  image-rendering: auto;
+
+  outline: none;
+}
+
+.a-enter-vr,
+.a-enter-ar {
+  display: none !important;
+}
+
+.estado-carga-visor {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+
+  display: grid;
+  align-content: center;
+  justify-items: center;
+
+  padding: 30px;
+
+  color: #ffffff;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(126, 49, 139, 0.42),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #1d0a23,
+      #481452
+    );
+}
+
+.estado-carga-visor strong {
+  margin-top: 19px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 24px;
+}
+
+.estado-carga-visor p {
+  max-width: 450px;
+
+  margin: 10px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+}
+
+.indicador-carga {
+  width: 58px;
+  height: 58px;
+
+  border:
+    5px solid rgba(255, 255, 255, 0.17);
+
+  border-top-color: #e9bb55;
+  border-radius: 50%;
+
+  animation:
+    girar-indicador 900ms linear infinite;
+}
+
+@keyframes girar-indicador {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.estado-error-visor {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(183, 43, 37, 0.25),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #241018,
+      #501827
+    );
+}
+
+.simbolo-error {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+
+  background-color: #b72b25;
+  border-radius: 50%;
+}
+
+.estado-error-visor code {
+  max-width: 100%;
+
+  margin-top: 14px;
+  padding: 10px 13px;
+
+  overflow-wrap: anywhere;
+
+  color: #f5cf75;
+
+  background-color:
+    rgba(0, 0, 0, 0.25);
+
+  border-radius: 9px;
+}
+
+.etiqueta-escena-visor {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+
+  max-width:
+    min(390px, calc(100% - 40px));
+
+  padding: 13px 17px;
+
+  color: #ffffff;
+
+  background-color:
+    rgba(35, 10, 42, 0.82);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(12px);
+
+  pointer-events: none;
+}
+
+.etiqueta-escena-visor span,
+.etiqueta-escena-visor strong {
+  display: block;
+}
+
+.etiqueta-escena-visor span {
+  color: #edc865;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.etiqueta-escena-visor strong {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.controles-zoom-visor {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 12;
+
+  display: grid;
+  gap: 8px;
+}
+
+.controles-zoom-visor button {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+
+  background-color:
+    rgba(35, 10, 42, 0.82);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.controles-zoom-visor button:hover {
+  background-color:
+    rgba(100, 32, 112, 0.94);
+
+  transform: translateY(-2px);
+}
+
+.controles-zoom-visor button:active {
+  transform: scale(0.95);
+}
+
+.a-dialog {
+  color: #302831 !important;
+
+  background-color:
+    rgba(255, 255, 255, 0.98) !important;
+
+  border-radius: 20px !important;
+
+  box-shadow:
+    0 25px 65px rgba(40, 10, 48, 0.26) !important;
+}
+
+.a-dialog-allow-button {
+  color: #ffffff !important;
+  background-color: #642070 !important;
+  border-radius: 999px !important;
+}
+
+.a-dialog-deny-button,
+.a-dialog-ok-button {
+  color: #642070 !important;
+  background-color: #f3eaf5 !important;
+  border-radius: 999px !important;
+}
+
+@media (max-width: 700px) {
+  .contenedor-visor-360 {
+    min-height: 450px;
+  }
+
+  .etiqueta-escena-visor {
+    top: 12px;
+    left: 12px;
+
+    max-width:
+      calc(100% - 80px);
+  }
+
+  .controles-zoom-visor {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .controles-zoom-visor button {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  .indicador-carga {
+    animation: none;
+  }
+
+  .controles-zoom-visor button {
+    transition: none;
+  }
+}
