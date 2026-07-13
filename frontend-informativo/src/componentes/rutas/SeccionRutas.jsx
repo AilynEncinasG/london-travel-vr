@@ -1,4 +1,4 @@
-import { rutasTuristicas } from '../../datos/contenidoInicial'
+import { rutasTuristicas } from '../../datos/rutasIniciales'
 import TarjetaRuta from './TarjetaRuta'
 import './SeccionRutas.css'
 
@@ -14,26 +14,37 @@ function SeccionRutas() {
       aria-labelledby="titulo-rutas"
     >
       <div className="contenedor">
-        <div className="encabezado-seccion">
-          <p className="etiqueta-seccion">
-            Destinos turísticos
-          </p>
+        <div className="encabezado-rutas">
+          <div className="encabezado-seccion">
+            <p className="etiqueta-seccion">
+              Destinos turísticos
+            </p>
 
-          <h2
-            id="titulo-rutas"
-            className="titulo-seccion"
-          >
-            Explora nuestras rutas
-          </h2>
+            <h2
+              id="titulo-rutas"
+              className="titulo-seccion"
+            >
+              Conoce nuestras rutas
+            </h2>
 
-          <p className="descripcion-seccion">
-            Conoce algunas de las experiencias turísticas disponibles
-            en London Travel.
-          </p>
+            <p className="descripcion-seccion">
+              Revisa la descripción, los servicios incluidos,
+              el mapa del recorrido y la experiencia inmersiva
+              disponible para cada destino.
+            </p>
+          </div>
+
+          <div className="mensaje-rutas">
+            <span>London Travel</span>
+
+            <strong>
+              Tu experiencia comienza antes del viaje
+            </strong>
+          </div>
         </div>
 
         {rutasValidas.length > 0 ? (
-          <div className="cuadricula-rutas">
+          <div className="lista-rutas-detalladas">
             {rutasValidas.map((ruta) => (
               <TarjetaRuta
                 key={ruta.id}
@@ -43,11 +54,17 @@ function SeccionRutas() {
           </div>
         ) : (
           <div className="estado-rutas-vacio">
-            <h3>Rutas temporalmente no disponibles</h3>
+            <div className="icono-rutas-vacias">
+              LT
+            </div>
+
+            <h3>
+              Próximamente publicaremos nuevas rutas
+            </h3>
 
             <p>
-              La información turística continúa funcionando.
-              Próximamente se publicarán nuevas rutas.
+              La información institucional y los medios de
+              contacto continúan disponibles.
             </p>
           </div>
         )}
